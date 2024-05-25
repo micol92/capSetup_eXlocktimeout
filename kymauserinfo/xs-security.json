@@ -1,0 +1,29 @@
+{
+  "xsappname": "kymauserinfo",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+       "https://*.kyma.ondemand.com/**",
+       "https://*.hana.ondemand.com/**",
+       "https://*.compute.internal/**",
+       "https://*.local/**",
+       "https://*.ap12.hana.ondemand.com/login/callback"
+    ] 
+  }      
+}

@@ -1,0 +1,13 @@
+{
+  "welcomeFile": "kymauserinfo",
+  "authenticationMethod": "route",
+  "sessionTimeout": 30,
+  "routes": [
+        {
+            "source": "^/user-api(.*)",
+            "target": "$1",
+            "service": "sap-approuter-userapi",
+            "destination": "https://apacheanswer04-myanswer.c-5d3089e.kyma.ondemand.com"
+        }   
+  ]
+}

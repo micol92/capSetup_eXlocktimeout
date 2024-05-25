@@ -1,0 +1,52 @@
+### ------------------------------------------------------------------------
+# Insert XTBL003
+POST http://localhost:4004/odata/v4/deep/XTBL003
+Content-Type: application/json;IEEE754Compatible=true
+Authorization: Basic alice:
+
+{
+ "FLOWCODE": "MH001",
+ "STATUS": "01", 
+ "FIELD01": "07199782",
+ "FIELD02": "K0121120",
+ "DETAIL" : [
+  {
+    "FLOWCODE": "MH001",
+    "NO1": "2",
+    "STATUS": "01", 
+    "APPROVAL_NAME": "JHAN"
+  }]
+}
+
+### ------------------------------------------------------------------------
+# Select XTBL003
+GET http://localhost:4004/odata/v4/deep/XTBL003(FLOWUUID=e80de858-53a1-4906-ab50-fe9b5a16fc3d,FLOWCODE='MH001',STATUS='01')?$expand=DETAIL
+
+
+### ------------------------------------------------------------------------
+# Update XTBL003
+PUT http://localhost:4004/odata/v4/deep/XTBL003(FLOWUUID=e80de858-53a1-4906-ab50-fe9b5a16fc3d,FLOWCODE='MH001',STATUS='01')
+Content-Type: application/json;IEEE754Compatible=true
+Authorization: Basic alice:
+
+{
+    "FLOWUUID": "e80de858-53a1-4906-ab50-fe9b5a16fc3d",
+    "FLOWCODE": "MH001",
+    "STATUS": "01", 
+    "FIELD01": "VVV",
+    "FIELD02": "SSS",
+    "DETAIL" : [{
+        "FLOWUUID": "e80de858-53a1-4906-ab50-fe9b5a16fc3d",
+        "FLOWCODE": "MH001",
+        "NO1": "2",
+        "STATUS": "01", 
+        "APPROVAL_NAME": "JHANS"
+        }
+    ]
+}
+
+
+### ------------------------------------------------------------------------
+# Delete XTBL003
+DELETE http://localhost:4004/odata/v4/deep/XTBL003(FLOWUUID=e80de858-53a1-4906-ab50-fe9b5a16fc3d,FLOWCODE='MH001',STATUS='01')
+
